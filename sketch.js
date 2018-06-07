@@ -70,7 +70,7 @@ function draw() {
 function mouseClicked() {
   if (mouseX > (circle1PosX-diameter/2) && mouseX < (circle1PosX+diameter/2) && mouseY > (circle1PosY-diameter/2) && mouseY < (circle1PosY+diameter/2)) {
     Play1();
-    //window.alert("Hello world!");
+    window.alert("Hello world!");
   }
 
   if (mouseX > (circle2PosX-diameter/2) && mouseX < (circle2PosX+diameter/2) && mouseY > (circle2PosY-diameter/2) && mouseY < (circle2PosY+diameter/2)) {
