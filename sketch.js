@@ -1,10 +1,10 @@
 //Variables Videos
-var circle1PosX = 960;
-var circle1PosY = 360;
+var circle1PosX;
+var circle1PosY;
 
-var diameter = 50;
+var diameter = 500;
 var angle = 0;
-var smallDiameter = 60;
+var smallDiameter = 10;
 
 var videoInicial;
 var videoCancion;
@@ -22,29 +22,32 @@ function preload() {
 
 function setup() {
   //Setup Video
-  createCanvas(1920, 1080);
+  createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
   videoInicial.loop();
   videoInicial.hide();
   videoCancion.loop();
   videoCancion.hide();
   song.loop();
+  circle1PosX = windowWidth/2;
+  circle1PosY = windowHeight/2;
 }
 
 function draw() {
+  background(0);
   var d1 = smallDiameter + (sin(angle) * diameter / 2) + diameter / 2;
   noFill();
   strokeWeight(5);
   stroke(255, 0, 0);
 
   if (videoPlay) {
-    image(videoInicial, width / 2, height / 2);
+    image(videoInicial, windowWidth / 2, windowHeight / 2);
     song.setVolume(0);
     ellipse(circle1PosX, circle1PosY, d1, d1);
   }
 
   if (gameStart) {
-    image(videoCancion, width / 2, height / 2);
+    image(videoCancion, windowWidth / 2, windowHeight / 2);
     if (!songPlay) {
       song.jump(0);
       songPlay = true;
@@ -54,6 +57,8 @@ function draw() {
 
 
   angle += 0.05;
+  
+  print(windowWidth + "X" + windowHeight);
 }
 
 function mouseClicked() {
